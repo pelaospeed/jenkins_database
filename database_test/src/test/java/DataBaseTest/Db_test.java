@@ -9,12 +9,14 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Logger;
 
 public class Db_test {
     Connection con = null;
     ResultSet rs = null;
     ResultSet rs_02 = null;
 
+    static Logger logger = Logger.getLogger(Db_test.class.getName());
 
     @BeforeClass
     void setup() throws SQLException {
@@ -50,6 +52,7 @@ public class Db_test {
                 "WHERE TABLE_SCHEMA = 't_02' AND TABLE_NAME ='t_tbl'" +
                 "ORDER BY ordinal_position;");
         softAssert.assertEquals(compareResultSets(rs, rs_02), true);
+        logger.info("Por acá");
         softAssert.assertAll();
     }
 
@@ -77,6 +80,7 @@ public class Db_test {
                 "WHERE TABLE_SCHEMA = 't_03' AND TABLE_NAME ='t_tbl'" +
                 "ORDER BY ordinal_position;");
         softAssert.assertEquals(compareResultSets(rs, rs_02), true);
+        logger.info("Por acá");
         softAssert.assertAll();
     }
 
@@ -87,6 +91,7 @@ public class Db_test {
 
         rs_02 = con.createStatement().executeQuery("SELECT count(*) as Total FROM t_03.t_tbl");
         softAssert.assertEquals(compareRowResult(rs,rs_02),true);
+        logger.info("Por acá");
         softAssert.assertAll();
     }
 
@@ -97,6 +102,7 @@ public class Db_test {
 
         rs_02 = con.createStatement().executeQuery("SELECT count(*) as Total  FROM t_04.t_tbl");
         softAssert.assertEquals(compareRowResult(rs,rs_02),true);
+        logger.info("Por acá");
         softAssert.assertAll();
     }
 
