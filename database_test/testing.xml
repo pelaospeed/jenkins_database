@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="DATAandKPI " verbose="5" thread-count="1" parallel="methods">
+    <listeners>
+        <listener class-name="DataBaseTest.Listeners" />
+    </listeners>
     <test name="DataBase_test">
         <classes>
             <class name="DataBaseTest.Db_test">
