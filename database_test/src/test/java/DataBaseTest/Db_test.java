@@ -20,7 +20,7 @@ public class Db_test {
 
     @BeforeClass
     void setup() throws SQLException {
-        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/", "root", "root");
+        con = DriverManager.getConnection("jdbc:mysql://192.168.1.117:3306/", "root", "root");
     }
 
     @AfterClass
