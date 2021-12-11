@@ -51,7 +51,7 @@ public class Db_test {
                 "FROM INFORMATION_SCHEMA.COLUMNS\n" +
                 "WHERE TABLE_SCHEMA = 't_02' AND TABLE_NAME ='t_tbl'" +
                 "ORDER BY ordinal_position;");
-        softAssert.assertEquals(compareResultSets(rs, rs_02), true);
+        softAssert.assertEquals(compareResultSets(rs, rs_02), true, "The table has differences");
         softAssert.assertAll();
     }
 
@@ -78,7 +78,7 @@ public class Db_test {
                 "FROM INFORMATION_SCHEMA.COLUMNS\n" +
                 "WHERE TABLE_SCHEMA = 't_03' AND TABLE_NAME ='t_tbl'" +
                 "ORDER BY ordinal_position;");
-        softAssert.assertEquals(compareResultSets(rs, rs_02), true);
+        softAssert.assertEquals(compareResultSets(rs, rs_02), true, "The table has differences");
         softAssert.assertAll();
     }
 
@@ -88,7 +88,7 @@ public class Db_test {
         rs = con.createStatement().executeQuery("SELECT count(*) as Total FROM t_01.t_tbl");
 
         rs_02 = con.createStatement().executeQuery("SELECT count(*) as Total FROM t_03.t_tbl");
-        softAssert.assertEquals(compareRowResult(rs,rs_02),true);
+        softAssert.assertEquals(compareRowResult(rs,rs_02),true, "The number of rows aren't equals");
         softAssert.assertAll();
     }
 
@@ -98,7 +98,7 @@ public class Db_test {
         rs = con.createStatement().executeQuery("SELECT count(*) as Total FROM t_01.t_tbl");
 
         rs_02 = con.createStatement().executeQuery("SELECT count(*) as Total  FROM t_04.t_tbl");
-        softAssert.assertEquals(compareRowResult(rs,rs_02),true);
+        softAssert.assertEquals(compareRowResult(rs,rs_02),true, "The number of rows aren't equals");
         softAssert.assertAll();
     }
 
