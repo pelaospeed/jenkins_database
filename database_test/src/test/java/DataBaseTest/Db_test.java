@@ -52,7 +52,6 @@ public class Db_test {
                 "WHERE TABLE_SCHEMA = 't_02' AND TABLE_NAME ='t_tbl'" +
                 "ORDER BY ordinal_position;");
         softAssert.assertEquals(compareResultSets(rs, rs_02), true);
-        logger.info("Por acá");
         softAssert.assertAll();
     }
 
@@ -80,7 +79,6 @@ public class Db_test {
                 "WHERE TABLE_SCHEMA = 't_03' AND TABLE_NAME ='t_tbl'" +
                 "ORDER BY ordinal_position;");
         softAssert.assertEquals(compareResultSets(rs, rs_02), true);
-        logger.info("Por acá");
         softAssert.assertAll();
     }
 
@@ -91,7 +89,6 @@ public class Db_test {
 
         rs_02 = con.createStatement().executeQuery("SELECT count(*) as Total FROM t_03.t_tbl");
         softAssert.assertEquals(compareRowResult(rs,rs_02),true);
-        logger.info("Por acá");
         softAssert.assertAll();
     }
 
@@ -102,7 +99,6 @@ public class Db_test {
 
         rs_02 = con.createStatement().executeQuery("SELECT count(*) as Total  FROM t_04.t_tbl");
         softAssert.assertEquals(compareRowResult(rs,rs_02),true);
-        logger.info("Por acá");
         softAssert.assertAll();
     }
 
